@@ -1,10 +1,14 @@
-#ifndef SIMPLE_SHELL
-#define SIMPLE_SHELL
-#
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#ifndef SIMPLESHELL
+#define SIMPLESHELL
 
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+#include <string.h>
+
+char **strtoken(char **command, char *line);
+int execution(char **command, int error);
 
 #endif
-

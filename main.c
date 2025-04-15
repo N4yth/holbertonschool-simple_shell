@@ -7,21 +7,28 @@
  */
 int main(void)
 {
-	int max = 10;
+	int resu;
 	size_t len;
 	char *line;
 	char **command;
 
-	while (max)
+	command = malloc(255);
+	if (command == NULL)
 	{
-		printf("hsh(%d)~$ ", max);
-		line = malloc(255);
-		getline(&line, &len, stdin);
-		strtoken(line);
-		execution(command, 0);
-		max--;
+		return (1);
 	}
-
+	while (1)
+	{
+		printf("hsh~$ ");
+		resu = getline(&line, &len, stdin);
+		if (resu == -1)
+		{
+			printf("\n");
+			break;
+		}
+		strtoken(command, line);
+		execution(command, 0);
+	}
 	free(line);
 	free(command);
 	return (0);

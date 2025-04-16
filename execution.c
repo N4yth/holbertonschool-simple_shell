@@ -32,6 +32,7 @@ int execution(char **command, int error)
 			if (execve(command[0], command, NULL) != -1)
 				return (0);
 			printf("./hsh: no such file or directory\n");
+			kill(getpid(), SIGKILL);
 			return (1);
 		}
 		else

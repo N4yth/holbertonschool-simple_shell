@@ -7,16 +7,11 @@
  */
 int main(void)
 {
-	int resu;
-	size_t len;
-	char *line;
-	char **command;
+	int resu = 0;
+	size_t len = 0;
+	char *line = "";
+	char *command[4096] = {""};
 
-	command = malloc(255);
-	if (command == NULL)
-	{
-		return (1);
-	}
 	while (1)
 	{
 		printf("hsh~$ ");
@@ -30,6 +25,5 @@ int main(void)
 		execution(command, 0);
 	}
 	free(line);
-	free(command);
 	return (0);
 }

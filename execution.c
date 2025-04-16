@@ -16,6 +16,8 @@ int execution(char **command)
 
 	if (access(command[0], F_OK) == -1)
 	{
+		if (!strcmp (command[0], "exit"))
+			return (1);
 		if (isatty(STDIN_FILENO))
 			printf("./hsh: no such file or directory\n");
 		return (-1);

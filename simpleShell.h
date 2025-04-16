@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+extern char **environ;
+
 char **strtoken(char **command, char *line);
 int execution(char **command, int error);
 

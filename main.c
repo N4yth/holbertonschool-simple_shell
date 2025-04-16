@@ -1,5 +1,7 @@
 #include "simpleShell.h"
 
+extern char **environ;
+
 /**
  * main - Entry point
  *
@@ -21,8 +23,6 @@ int main(void)
 		resu = getline(&line, &len, stdin);
 		if (resu == -1)
 		{
-			if (isatty(STDIN_FILENO))
-				printf("\n");
 			free(line);
 			exit(99);
 		}

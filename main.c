@@ -12,7 +12,7 @@ int main(void)
 	char *line = "";
 	char *command[4096] = {""};
 
-	while (1)
+	while (1 && resu != 1)
 	{
 		if (isatty(STDIN_FILENO))
 		{
@@ -25,7 +25,7 @@ int main(void)
 			exit(99);
 		}
 		strtoken(command, line);
-		execution(command);
+		resu = execution(command);
 	}
 	free(line);
 	return (0);

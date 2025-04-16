@@ -1,7 +1,5 @@
 #include "simpleShell.h"
 
-extern char **environ;
-
 /**
  * main - Entry point
  *

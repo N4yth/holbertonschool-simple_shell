@@ -12,11 +12,11 @@
 int execution(char **command, int error)
 {
 	pid_t child;
-	int status, test = 468468;
+	int status = 0;
 
 	if (error == 1)
 	{
-		printf("./hsh : no such file or directory");
+		printf("./hsh: no such file or directory");
 		status = 1;
 	}
 	else
@@ -29,9 +29,9 @@ int execution(char **command, int error)
 		}
 		if (child == 0)
 		{
-			if ((test = execve(command[0], command, NULL)) != -1)
+			if (execve(command[0], command, NULL) != -1)
 				return (0);
-			printf("./hsh : no such file or directory\n");
+			printf("./hsh: no such file or directory\n");
 			return (1);
 		}
 		else

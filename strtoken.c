@@ -4,8 +4,9 @@
  * strtoken - strok the line given into an array of all element
  *
  * @line: the line to strok
+ * @command: the array of element of the command
  *
- * Return: an array of all element find
+ * Return: always 0
  */
 
 char **strtoken(char **command, char *line)

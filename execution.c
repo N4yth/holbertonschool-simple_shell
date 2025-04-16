@@ -29,9 +29,13 @@ int execution(char **command, int error)
 		}
 		if (child == 0)
 		{
-			if (execve(command[0], command, NULL) != -1)
+			if (!access(command[0], F_OK))
+			{
+				execve(command[0], command, NULL);
 				return (0);
-			printf("./hsh: no such file or directory\n");
+			}
+			if (!isatty(STDIN_FILENO))
+				printf("./hsh: no such file or directory\n");
 			kill(getpid(), SIGKILL);
 			return (1);
 		}

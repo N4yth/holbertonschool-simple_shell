@@ -9,40 +9,34 @@
  * Return: 1 if error or 0 otherwise
  */
 
-int execution(char **command, int error)
+int execution(char **command)
 {
 	pid_t child;
 	int status = 0;
 
-	if (error == 1)
+	if (access(command[0], F_OK) == -1)
 	{
-		printf("./hsh: no such file or directory");
-		status = 1;
+		if (isatty(STDIN_FILENO))
+			printf("./hsh: no such file or directory\n");
+		return (-1);
+	}
+	child = fork();
+	if (child == -1)
+	{
+		perror("Error:");
+		return (1);
+	}
+	if (child == 0)
+	{
+		if (execve(command[0], command, NULL) == -1)
+		{
+			return (1);
+		}		
+		return (0);
 	}
 	else
 	{
-		child = fork();
-		if (child == -1)
-		{
-			perror("Error:");
-			return (1);
-		}
-		if (child == 0)
-		{
-			if (!access(command[0], F_OK))
-			{
-				execve(command[0], command, NULL);
-				return (0);
-			}
-			if (isatty(STDIN_FILENO))
-				printf("./hsh: no such file or directory\n");
-			kill(getpid(), SIGKILL);
-			return (1);
-		}
-		else
-		{
-			wait(&status);
-		}
+		wait(&status);
 	}
-	return (status);
+	return (0);
 }

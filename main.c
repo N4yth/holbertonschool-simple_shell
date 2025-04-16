@@ -14,12 +14,17 @@ int main(void)
 
 	while (1)
 	{
-		printf("hsh~$ ");
+		if (isatty(STDIN_FILENO))
+		{
+			printf("hsh~$ ");
+		}
 		resu = getline(&line, &len, stdin);
 		if (resu == -1)
 		{
-			printf("\n");
-			break;
+			if (isatty(STDIN_FILENO))
+				printf("\n");
+			free(line);
+			exit(99);
 		}
 		strtoken(command, line);
 		execution(command, 0);

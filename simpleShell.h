@@ -11,6 +11,6 @@
 extern char **environ;
 
 char **strtoken(char **command, char *line);
-int execution(char **command, int error);
+int execution(char **command);
 
 #endif

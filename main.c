@@ -25,7 +25,7 @@ int main(void)
 			exit(99);
 		}
 		strtoken(command, line);
-		execution(command, 0);
+		execution(command);
 	}
 	free(line);
 	return (0);

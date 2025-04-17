@@ -30,7 +30,7 @@ int execution(char **command)
 	}
 	if (child == 0)
 	{
-		if (execve(command[0], command, NULL) == -1)
+		if (execve(command[0], command, environ) == -1)
 		{
 			return (1);
 		}		

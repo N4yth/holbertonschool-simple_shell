@@ -24,7 +24,7 @@ int main(void)
 			free(line);
 			exit(99);
 		}
-		strtoken(command, line);
+		strtoken(command, line, " ");
 		execution(command);
 	}
 	free(line);

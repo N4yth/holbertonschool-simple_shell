@@ -24,8 +24,13 @@ int main(void)
 			free(line);
 			exit(99);
 		}
+<<<<<<< HEAD
 		strtoken(command, line);
 		resu = execution(command);
+=======
+		strtoken(command, line, " ");
+		execution(command);
+>>>>>>> ingrid
 	}
 	free(line);
 	return (0);

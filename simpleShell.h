@@ -1,5 +1,5 @@
-#ifndef SIMPLESHELL
-#define SIMPLESHELL
+#ifndef SIMPLESHELL_H
+#define SIMPLESHELL_H
 
 #include <stdio.h>
 #include <unistd.h>
@@ -10,7 +10,7 @@
 
 extern char **environ;
 
-char **strtoken(char **command, char *line);
+char **strtoken(char **command, char *line, char *separator);
 int execution(char **command);
 
 #endif

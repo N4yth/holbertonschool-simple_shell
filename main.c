@@ -22,7 +22,7 @@ int main(void)
 		if (resu == -1)
 		{
 			free(line);
-			exit(99);
+			exit(0);
 		}
 		strtoken(command, line, " ");
 		execution(command);

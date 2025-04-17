@@ -29,8 +29,8 @@ int main(void)
 		{
 			free(line);
 			if (last_exec == -1)
-				exit(2);
-			exit(0);
+				return(2);
+			return(0);
 		}
 		last_exec = resu;
 	}

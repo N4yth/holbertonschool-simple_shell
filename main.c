@@ -28,7 +28,7 @@ int main(void)
 		if (execution(command) == 1)
 		{
 			free(line);
-			exit(2);
+			exit(EXIT_FAILURE);
 		}
 	}
 	free(line);

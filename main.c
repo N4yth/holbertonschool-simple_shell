@@ -28,9 +28,7 @@ int main(void)
 		if ((resu = execution(command)) == 1)
 		{
 			free(line);
-			if (last_exec == -1)
-				return(2);
-			return(0);
+			exit(2);
 		}
 		last_exec = resu;
 	}

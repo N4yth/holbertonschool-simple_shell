@@ -18,7 +18,6 @@ int main(void)
 		{
 			printf("hsh~$ ");
 		}
-		findExec(command);
 		resu = getline(&line, &len, stdin);
 		if (resu == -1)
 		{
@@ -26,10 +25,13 @@ int main(void)
 			exit(0);
 		}
 		strtoken(command, line, " ");
-		if (execution(command) == 1)
+		if (findExec(command))
 		{
-			free(line);
-			exit(EXIT_FAILURE);
+			if (execution(command) == 1)
+			{
+				free(line);
+				exit(EXIT_FAILURE);
+			}
 		}
 	}
 	free(line);

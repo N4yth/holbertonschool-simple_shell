@@ -14,14 +14,6 @@ int execution(char **command)
 	pid_t child;
 	int status = 0;
 
-	if (access(command[0], F_OK) == -1)
-	{
-		if (!strcmp (command[0], "exit"))
-			return (1);
-		if (isatty(STDIN_FILENO))
-			printf("./hsh: no such file or directory\n");
-		return (-1);
-	}
 	child = fork();
 	if (child == -1)
 	{

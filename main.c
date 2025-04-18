@@ -18,6 +18,7 @@ int main(void)
 		{
 			printf("hsh~$ ");
 		}
+		findExec(command);
 		resu = getline(&line, &len, stdin);
 		if (resu == -1)
 		{

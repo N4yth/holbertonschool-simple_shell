@@ -15,10 +15,7 @@ int main(void)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-		{
 			printf("hsh~$ ");
-		}
-		findExec(command);
 		resu = getline(&line, &len, stdin);
 		if (resu == -1)
 		{
@@ -26,7 +23,12 @@ int main(void)
 			exit(0);
 		}
 		strtoken(command, line, " ");
-		if (execution(command) == 1)
+		resu = findExec(command);
+		if (resu)
+		{
+			execution(command)
+		}
+		else if  (resu == -1)
 		{
 			free(line);
 			exit(EXIT_FAILURE);

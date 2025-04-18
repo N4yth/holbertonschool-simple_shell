@@ -23,15 +23,13 @@ int main(void)
 			exit(0);
 		}
 		strtoken(command, line, " ");
-		resu = findExec(command);
-		if (resu)
+		if (findExec(command))
 		{
-			execution(command)
-		}
-		else if  (resu == -1)
-		{
-			free(line);
-			exit(EXIT_FAILURE);
+			if (execution(command) == 1)
+			{
+				free(line);
+				exit(EXIT_FAILURE);
+			}
 		}
 	}
 	free(line);

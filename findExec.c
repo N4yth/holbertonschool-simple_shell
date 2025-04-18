@@ -1,28 +1,36 @@
 #include "simpleShell.h"
 
+
 /**
  *findExec - Handles the paths
- *@path: specifies the location of a directory or a file
+ *@command: specifies the location of a directory or a file
  *Return: always 0
  */
-int findExec(const char *path)
+int findExec(char **command)
 {
-	int i = 0;
-	char *pathEnv = getenv("PATH");
+	char fullPath[1024];
+	char *pathEnv = myGetEnv("PATH");
+	char *pathCpy, *dir;
 
-	if (pathEnv == NULL)
-	{
-		printf("Error: PATH environment variable not found.\n");
+	pathCpy = strdup(pathEnv);
+	if (pathCpy == NULL)
 		return (0);
+
+	dir = strtok(pathCpy, ":");
+	while (dir != NULL)
+	{
+		sprintf(fullPath, "%s/%s", dir, command[0]);
+
+		if (access(fullPath, X_OK) == 0)
+		{
+			command[0] = strdup(fullPath);
+			free(pathCpy);
+			return (1);
+		}
+
+		dir = strtok(NULL, ":");
 	}
 
-	for (i = 0; i < *pathEnv; i++)
-	{
-		while (path)
-		{
-			printf("%d/%s", path[i], path);
-			free(pathEnv);
-		}
-	}
-	return (0);
+	free(pathCpy);
+	return (1);
 }

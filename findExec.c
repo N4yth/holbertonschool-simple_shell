@@ -1,6 +1,5 @@
 #include "simpleShell.h"
 
-
 /**
  *findExec - Handles the paths
  *@command: specifies the location of a directory or a file
@@ -8,29 +7,35 @@
  */
 int findExec(char **command)
 {
-	char fullPath[1024];
 	char *pathEnv = myGetEnv("PATH");
-	char *pathCpy, *dir;
+	char *pathCpy, *dir, final_path[255];
+	DIR *file;
+	struct dirent *entry;
 
 	pathCpy = strdup(pathEnv);
 	if (pathCpy == NULL)
 		return (0);
 
-	dir = strtok(pathCpy, ":");
-	while (dir != NULL)
+	for (dir = strtok(pathCpy, ":"); dir != NULL ; dir = strtok(NULL, ":"))
 	{
-		sprintf(fullPath, "%s/%s", dir, command[0]);
-
-		if (access(fullPath, X_OK) == 0)
+		file = opendir(dir);
+		if (file)
 		{
-			command[0] = strdup(fullPath);
-			free(pathCpy);
-			return (1);
+			while ((entry = readdir(file)) != NULL)
+			{
+				if (!strcmp(entry->d_name, command[0]))
+				{
+					sprintf(final_path, "%s/%s", dir, command[0]); 
+					command[0] = final_path;
+					closedir(file);
+					free(pathCpy);
+					return (1);
+				}
+			}
+			closedir(file);
 		}
-
-		dir = strtok(NULL, ":");
 	}
-
+	printf("./hsh: no such file or directory\n");
 	free(pathCpy);
-	return (1);
-}
+	return (0);
+}	

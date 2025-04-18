@@ -7,6 +7,8 @@
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <string.h>
+#include <dirent.h>
+#include <sys/stat.h>
 
 extern char **environ;
 

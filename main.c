@@ -15,9 +15,7 @@ int main(void)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-		{
 			printf("hsh~$ ");
-		}
 		resu = getline(&line, &len, stdin);
 		if (resu == -1)
 		{

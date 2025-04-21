@@ -13,6 +13,7 @@ int findExec(char **command)
 	struct dirent *entry;
 
 	pathCpy = strdup(pathEnv);
+	free(pathEnv);
 	if (pathCpy == NULL)
 		return (0);
 
@@ -25,8 +26,8 @@ int findExec(char **command)
 			{
 				if (!strcmp(entry->d_name, command[0]))
 				{
-					sprintf(final_path, "%s/%s", dir, command[0]); 
-					command[0] = final_path;
+					sprintf(final_path, "%s/%s", dir, command[0]);
+					strcpy(command[0], final_path);
 					closedir(file);
 					free(pathCpy);
 					return (1);
@@ -38,4 +39,4 @@ int findExec(char **command)
 	printf("./hsh: no such file or directory\n");
 	free(pathCpy);
 	return (0);
-}	
+}

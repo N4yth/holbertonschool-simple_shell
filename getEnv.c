@@ -9,20 +9,18 @@
 char *myGetEnv(const char *name)
 {
 	char *pathCpy;
-	int len, result, i;
+	int lenName = strlen(name) + 1, result, i;
 
 	for (i = 0 ; environ[i] ; i++)
 	{
 		result = strncmp(name, environ[i], strlen(name));
 		if (result == 0)
 		{
-			pathCpy = malloc(strlen(environ[i]));
+			pathCpy = malloc((strlen(environ[i]) + 1) - lenName);
+			/* */
 			if (pathCpy == NULL)
 				return (NULL);
-			strcpy(pathCpy, environ[i]);
-			len = strlen(name) + 1;
-			while (len--)
-				pathCpy++;
+			strcpy(pathCpy, environ[i] + lenName);
 			return (pathCpy);
 		}
 	}

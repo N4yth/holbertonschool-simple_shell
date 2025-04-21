@@ -12,7 +12,7 @@ int main(void)
 	char *line = "";
 	char *command[4096] = {""};
 
-	command[0] = malloc(255)
+	command[0] = malloc(255);
 	if (command[0] == NULL)
 		return (0);
 

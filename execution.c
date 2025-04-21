@@ -4,7 +4,6 @@
  * execution - execute the command
  *
  * @command: the command and its parameter
- * @error: the return of findExec
  *
  * Return: 1 if error or 0 otherwise
  */

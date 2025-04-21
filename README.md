@@ -9,7 +9,7 @@
 * [Requirements](#requirements)
 * [Files](#files)
 * [Compilation](#compilation)
-* [Authorized_functions_and_macros](#authorized_functions_and_macros)
+* [Allowed_functions_and_sysem_calls](#allowed_functions_and_system_calls)
 * [Prototypes](#prototypes)
 * [Functions](#functions)
 * [Specifier formats](#specifier-formats)
@@ -40,10 +40,10 @@ Create one project repository for our team, with the main branch and a branch pe
 
 ## **Resources**
 **Read or watch:**
-- [Unix shell](https://en.wikipedia.org/wiki/Unix_shell)  
-- [Thompson shell](https://en.wikipedia.org/wiki/Thompson_shell)  
-- [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)  
-- [Everything you need to know to start coding your own shell concept page](A CHARGER)
+- [Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)  
+- [Thompson_shell](https://en.wikipedia.org/wiki/Thompson_shell)  
+- [Ken_Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)  
+- [Everything_you_need_to_know_to_start_coding_your_own_shell_concept_page](A CHARGER)
 
 
 **Man:**

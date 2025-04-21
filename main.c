@@ -15,7 +15,6 @@ int main(void)
 	command[0] = malloc(255);
 	if (command[0] == NULL)
 		return (0);
-
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))

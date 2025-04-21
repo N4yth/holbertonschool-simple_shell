@@ -24,5 +24,6 @@ char **strtoken(char **command, char *line, char *separator)
 			command[i] = line;
 		i++;
 	}
+	command[i] = NULL;
 	return (0);
 }

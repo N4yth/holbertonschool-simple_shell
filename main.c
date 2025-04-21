@@ -12,6 +12,10 @@ int main(void)
 	char *line = "";
 	char *command[4096] = {""};
 
+	command[0] = malloc(255)
+	if (command[0] == NULL)
+		return (0);
+
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
@@ -19,6 +23,7 @@ int main(void)
 		resu = getline(&line, &len, stdin);
 		if (resu == -1)
 		{
+			free(command[0]);
 			free(line);
 			exit(0);
 		}
@@ -27,11 +32,13 @@ int main(void)
 		{
 			if (execution(command) == 1)
 			{
+				free(command[0]);
 				free(line);
 				exit(EXIT_FAILURE);
 			}
 		}
 	}
+	free(command[0]);
 	free(line);
 	return (0);
 }

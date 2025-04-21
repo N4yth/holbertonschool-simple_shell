@@ -25,7 +25,7 @@ int execution(char **command)
 		if (execve(command[0], command, environ) == -1)
 		{
 			return (1);
-		}		
+		}
 		return (0);
 	}
 	else

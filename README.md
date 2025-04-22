@@ -42,14 +42,14 @@ Create one project repository for our team, with the main branch and a branch pe
 
 
 # **Resources**
-##**Read or watch:**
+## **Read or watch:**
 - [Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)  
 - [Thompson_shell](https://en.wikipedia.org/wiki/Thompson_shell)  
 - [Ken_Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)  
 - [Everything_you_need_to_know_to_start_coding_your_own_shell_concept_page](https://github.com/N4yth/holbertonschool-simple_shell/blob/ingrid/Images/Everything%20you%20need%20to%20know.pdf)
 
 
-##**Man:**
+## **Man:**
 
 
 # **Requirements**  

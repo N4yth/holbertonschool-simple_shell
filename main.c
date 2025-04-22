@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	int resu = 0;
+	int resu = 0, exe_resu = 0, find_error;
 	size_t len = 0;
 	char *line = "";
 	char *command[4096] = {""};
@@ -21,23 +21,19 @@ int main(void)
 			printf("hsh~$ ");
 		resu = getline(&line, &len, stdin);
 		if (resu == -1)
-		{
-			free(command[0]);
-			free(line);
-			exit(0);
-		}
+			break;
 		strtoken(command, line, " ");
-		if (findExec(command))
+		find_error = findExec(command);
+		if (!find_error)
 		{
-			if (execution(command) == 1)
-			{
-				free(command[0]);
-				free(line);
-				exit(EXIT_FAILURE);
-			}
+			free(line);
+			free(command[0]);
+			exit(127);
 		}
+		exe_resu = execution(command);
 	}
 	free(command[0]);
 	free(line);
-	return (0);
+	printf("-----%d------\n", exe_resu);
+	exit(exe_resu);
 }

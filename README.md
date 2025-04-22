@@ -10,11 +10,14 @@
 * [Files](#files)
 * [Compilation](#compilation)
 <<<<<<< HEAD
+<<<<<<< HEAD
 * [Allowed_functions_and_sysem_calls](#allowed_functions_and_system_calls)
 * [Prototypes](#prototypes)
 * [Functions](#functions)
 * [Specifier formats](#specifier-formats)
 =======
+=======
+>>>>>>> ingrid
 * [Allowed functions and system calls](#allowed-functions-and-system-calls)
 * [Prototypes](#prototypes)
 * [Functions](#functions)
@@ -22,12 +25,16 @@
 * [Testing](#testing)
 * [Checks](#checks)
 * [Example](#example)
+<<<<<<< HEAD
+>>>>>>> ingrid
+=======
 >>>>>>> ingrid
 * [Tools to help](#tools-to-help)
 
 ---------------------------
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## **Background Context**
 Write a simple UNIX command interpreter  
@@ -62,6 +69,8 @@ Create one project repository for our team, with the main branch and a branch pe
 
 ## **Requirements**  
 =======
+=======
+>>>>>>> ingrid
 # **Background Context**
 Write a simple UNIX command interpreter.  
 **The challenge:**  
@@ -94,6 +103,9 @@ Create one project repository for our team, with the main branch and a branch pe
 
 
 # **Requirements**  
+<<<<<<< HEAD
+>>>>>>> ingrid
+=======
 >>>>>>> ingrid
 - Allowed editors: vi, vim, emacs
 - All your files should end with a new line
@@ -106,6 +118,7 @@ Create one project repository for our team, with the main branch and a branch pe
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## **Files**  
 - README.md
 - AUTHORS
@@ -115,6 +128,8 @@ contains declaration for all the functions in this repo, and the libraries
 - main.c
 - getEnv.c
 =======
+=======
+>>>>>>> ingrid
 # **Files**  
 - README.md
 - AUTHORS
@@ -123,6 +138,9 @@ contains declaration for all the functions in this repo, and the libraries
 contains declaration for all the functions in this repo, and the libraries
 - main.c
 - getEnv.c  
+<<<<<<< HEAD
+>>>>>>> ingrid
+=======
 >>>>>>> ingrid
 creation of our GetEnv function
 - strtoken.c
@@ -130,6 +148,7 @@ creation of our GetEnv function
 - execution.c  
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## **Compilation**
 All your files will be compiled on Ubuntu 20.04 LTS.
@@ -140,6 +159,8 @@ gcc, using the options -Wall -Werror -    Wextra -pedantic -std=gnu89
 
 ## **Allowed functions and system calls**
 =======
+=======
+>>>>>>> ingrid
 # **Compilation**
 All your files will be compiled on Ubuntu 20.04 LTS.
 The code will be compiled this way:
@@ -149,6 +170,9 @@ gcc, using the options -Wall -Werror -    Wextra -pedantic -std=gnu89
 
 # **Allowed functions and system calls**
 |Allowed functions and system calls|Allowed functions and system calls|
+<<<<<<< HEAD
+>>>>>>> ingrid
+=======
 >>>>>>> ingrid
 |-----------------------------|--------------------------------|
 |- all functions from string.h|- access (man 2 access)|
@@ -173,17 +197,23 @@ gcc, using the options -Wall -Werror -    Wextra -pedantic -std=gnu89
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## **Prototypes**
 The prototypes of all the functions are included in the header file called simpleShell.h.
 
 
 ## **Functions**
 =======
+=======
+>>>>>>> ingrid
 # **Prototypes**
 The prototypes of all the functions are included in the header file called simpleShell.h.
 
 
 # **Functions**
+<<<<<<< HEAD
+>>>>>>> ingrid
+=======
 >>>>>>> ingrid
 |Function | Description |
 |---------|-------------|
@@ -194,7 +224,11 @@ The prototypes of all the functions are included in the header file called simpl
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## **Output**
+=======
+# **Output**
+>>>>>>> ingrid
 =======
 # **Output**
 >>>>>>> ingrid
@@ -205,9 +239,15 @@ as sh (/bin/sh) as well as the exact same error output.
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## **Testing**
 - Your shell should work like this in interactive mode:
 ```python
+=======
+# **Testing**
+- Your shell should work like this in interactive mode:
+```
+>>>>>>> ingrid
 =======
 # **Testing**
 - Your shell should work like this in interactive mode:
@@ -222,7 +262,11 @@ julien@ubuntu:/#
 ```
 - But also in non-interactive mode:
 <<<<<<< HEAD
+<<<<<<< HEAD
 ```python
+=======
+```
+>>>>>>> ingrid
 =======
 ```
 >>>>>>> ingrid
@@ -239,24 +283,36 @@ julien@ubuntu:/#
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## **Checks**
 The Checker will be released at the end of the project (1-2 days before the deadline). 
 We strongly encourage the entire class to work together to create a suite of checks 
 covering both regular tests and edge cases for each task.
 =======
+=======
+>>>>>>> ingrid
 # **Checks**
 The Checker will be released at the end of the project (1-2 days before the deadline).  
 We strongly encourage the entire class to work together to create a suite of checks 
 covering both regular tests and edge cases for each task.  
+<<<<<<< HEAD
+>>>>>>> ingrid
+=======
 >>>>>>> ingrid
 After the deadline, you will need to fork the repository if it’s not on your Github account 
 to be able to be corrected by the checker.
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## **Example**
 Fork, wait and execve code 
 ```python
+=======
+# **Example**
+**Fork, wait and execve code** 
+```
+>>>>>>> ingrid
 =======
 # **Example**
 **Fork, wait and execve code** 
@@ -297,8 +353,13 @@ int main(void)
 }
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 Fork, wait and execve output
 ```python
+=======
+**Fork, wait and execve output**
+```
+>>>>>>> ingrid
 =======
 **Fork, wait and execve output**
 ```
@@ -381,7 +442,11 @@ drwxr-xr-x 2 compiler compiler
 
 # **Tools to help**
 <<<<<<< HEAD
+<<<<<<< HEAD
 Approaching a Project [Holberton Pages]()
+=======
+Approaching a Project [Holberton Pages](https://github.com/N4yth/holbertonschool-simple_shell/blob/ingrid/Images/Approaching%20a%20Project.png)
+>>>>>>> ingrid
 =======
 Approaching a Project [Holberton Pages](https://github.com/N4yth/holbertonschool-simple_shell/blob/ingrid/Images/Approaching%20a%20Project.png)
 >>>>>>> ingrid

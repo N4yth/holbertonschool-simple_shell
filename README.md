@@ -12,44 +12,47 @@
 * [Allowed_functions_and_sysem_calls](#allowed_functions_and_system_calls)
 * [Prototypes](#prototypes)
 * [Functions](#functions)
-* [Specifier formats](#specifier-formats)
+* [Output](#output)
+* [Testing](#testing)
+* [Checks](#checks)
+* [Example](#example)
 * [Tools to help](#tools-to-help)
 
 ---------------------------
 
 
-## **Background Context**
-Write a simple UNIX command interpreter  
-**The challenge:**   
-This is a group project, with a important collaboration
-The project lasts 2 weeks
+# **Background Context**
+Write a simple UNIX command interpreter.  
+**The challenge:**  
+This is a group project, with a important collaboration.  
+The project lasts 2 weeks.  
 
 
- # **Authors**  
-This project is done in team : 
-@Nathan Dupuis
+# **Authors**  
+This project is done in team:  
+@Nathan Dupuis  
 @Ingrid Mornac
 
 
-## **Installation**  
+# **Installation**  
 Create one project repository for our team, with the main branch and a branch per member on our Github.  
 
 
- ## **Flowchart**  
+# **Flowchart**  
 
 
-## **Resources**
-**Read or watch:**
+# **Resources**
+##**Read or watch:**
 - [Unix_shell](https://en.wikipedia.org/wiki/Unix_shell)  
 - [Thompson_shell](https://en.wikipedia.org/wiki/Thompson_shell)  
 - [Ken_Thompson](https://en.wikipedia.org/wiki/Ken_Thompson)  
-- [Everything_you_need_to_know_to_start_coding_your_own_shell_concept_page](A CHARGER)
+- [Everything_you_need_to_know_to_start_coding_your_own_shell_concept_page](https://github.com/N4yth/holbertonschool-simple_shell/blob/ingrid/Images/Everything%20you%20need%20to%20know.pdf)
 
 
-**Man:**
-  
+##**Man:**
 
-## **Requirements**  
+
+# **Requirements**  
 - Allowed editors: vi, vim, emacs
 - All your files should end with a new line
 - Your code should use the Betty style. 
@@ -60,28 +63,29 @@ Create one project repository for our team, with the main branch and a branch pe
 - Use system calls only when you need to  
 
 
-## **Files**  
+# **Files**  
 - README.md
 - AUTHORS
 - man_1_simple_shell  
-- simpleShell.h
+- simpleShell.h  
 contains declaration for all the functions in this repo, and the libraries
 - main.c
-- getEnv.c
+- getEnv.c  
 creation of our GetEnv function
 - strtoken.c
 - findExec.c
 - execution.c  
 
 
-## **Compilation**
+# **Compilation**
 All your files will be compiled on Ubuntu 20.04 LTS.
 The code will be compiled this way:
-```bash
+```
 gcc, using the options -Wall -Werror -    Wextra -pedantic -std=gnu89
 ```  
 
-## **Allowed functions and system calls**
+# **Allowed functions and system calls**
+|Allowed functions and system calls|Allowed functions and system calls|
 |-----------------------------|--------------------------------|
 |- all functions from string.h|- access (man 2 access)|
 |- chdir (man 2 chdir)|- close (man 2 close)|
@@ -104,11 +108,11 @@ gcc, using the options -Wall -Werror -    Wextra -pedantic -std=gnu89
 |- write (man 2 write)|  
 
 
-## **Prototypes**
+# **Prototypes**
 The prototypes of all the functions are included in the header file called simpleShell.h.
 
 
-## **Functions**
+# **Functions**
 |Function | Description |
 |---------|-------------|
 |char **strtoken(char **command, char *line, char *separator)|strok the line given into an array of all element|
@@ -117,16 +121,16 @@ The prototypes of all the functions are included in the header file called simpl
 |int execution(char **command)|execute the command|  
 
 
-## **Output**
+# **Output**
 - Unless specified otherwise, your program must have the exact same output:
 as sh (/bin/sh) as well as the exact same error output.
 - The only difference is when you print an error:
  the name of the program must be equivalent to your argv[0]
 
 
-## **Testing**
+# **Testing**
 - Your shell should work like this in interactive mode:
-```python
+```
 julien@ubuntu:/# ./hsh
 ($) /bin/ls
 hsh main.c shell.c
@@ -135,7 +139,7 @@ hsh main.c shell.c
 julien@ubuntu:/#
 ```
 - But also in non-interactive mode:
-```python
+```
 julien@ubuntu:/# echo "/bin/ls" | ./hsh
 hsh main.c shell.c test_ls_2
 julien@ubuntu:/# cat test_ls_2
@@ -148,17 +152,17 @@ julien@ubuntu:/#
 ```
 
 
-## **Checks**
-The Checker will be released at the end of the project (1-2 days before the deadline). 
+# **Checks**
+The Checker will be released at the end of the project (1-2 days before the deadline).  
 We strongly encourage the entire class to work together to create a suite of checks 
-covering both regular tests and edge cases for each task.
+covering both regular tests and edge cases for each task.  
 After the deadline, you will need to fork the repository if it’s not on your Github account 
 to be able to be corrected by the checker.
 
 
-## **Example**
-Fork, wait and execve code 
-```python
+# **Example**
+**Fork, wait and execve code** 
+```
 int main(void) 
 {
     pid_t pid;
@@ -193,8 +197,8 @@ int main(void)
     return 0;
 }
 ```
-Fork, wait and execve output
-```python
+**Fork, wait and execve output**
+```
 Child 1: Execute the command 'ls -l /tmp'
 total 52
 drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 4L24cucsCz

@@ -9,7 +9,7 @@
 * [Requirements](#requirements)
 * [Files](#files)
 * [Compilation](#compilation)
-* [Allowed_functions_and_sysem_calls](#allowed_functions_and_system_calls)
+* [Allowed_functions_and_system_calls](#allowed_functions_and_system_calls)
 * [Prototypes](#prototypes)
 * [Functions](#functions)
 * [Output](#output)
@@ -276,4 +276,4 @@ drwxr-xr-x 2 compiler compiler
 
 
 # **Tools to help**
-Approaching a Project [Holberton Pages]()
+Approaching a Project [Holberton Pages](https://github.com/N4yth/holbertonschool-simple_shell/blob/ingrid/Images/Approaching%20a%20Project.png)

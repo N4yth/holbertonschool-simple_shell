@@ -11,7 +11,7 @@ int findExec(char **command)
 	DIR *file;
 	struct dirent *entry;
 
-	if (command[0] == "exit")
+	if (!strcmp(command[0], "exit"))
 		return(-1);
 	if (!access(command[0], X_OK))
 	{

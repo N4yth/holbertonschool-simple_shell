@@ -24,7 +24,7 @@ int main(void)
 			break;
 		strtoken(command, line, " ");
 		find_error = findExec(command);
-		if (!find_error)
+		if (find_error == 0)
 		{
 			if (isatty(STDIN_FILENO))
 				printf("./hsh: no such file or directory\n");
@@ -32,6 +32,8 @@ int main(void)
 			free(command[0]);
 			exit(127);
 		}
+		else if (find_error == -1)
+			break;
 		exe_resu = execution(command);
 	}
 	free(command[0]);

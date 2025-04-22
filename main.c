@@ -34,6 +34,5 @@ int main(void)
 	}
 	free(command[0]);
 	free(line);
-	printf("-----%d------\n", exe_resu);
 	exit(exe_resu);
 }

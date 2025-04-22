@@ -9,7 +9,7 @@
 * [Requirements](#requirements)
 * [Files](#files)
 * [Compilation](#compilation)
-* [Allowed_functions_and_system_calls](#allowed_functions_and_system_calls)
+* [Allowed functions and system calls](#allowed-functions-and-system-calls)
 * [Prototypes](#prototypes)
 * [Functions](#functions)
 * [Output](#output)

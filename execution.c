@@ -22,14 +22,12 @@ int execution(char **command)
 	if (child == 0)
 	{
 		if (execve(command[0], command, environ) == -1)
-		{
-			return (1);
-		}
-		return (0);
+			exit(EXIT_FAILURE);
 	}
 	else
 	{
 		wait(&status);
+		WEXITSTATUS(status);
 	}
-	return (0);
+	return (status);
 }

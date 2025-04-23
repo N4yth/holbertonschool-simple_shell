@@ -28,5 +28,7 @@ int execution(char **command)
 	{
 		wait(&status);
 	}
-	return (0);
+	if (status == 512)
+		return (2);
+	return (status);
 }

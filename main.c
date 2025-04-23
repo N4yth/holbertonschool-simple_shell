@@ -23,6 +23,9 @@ int main(void)
 		if (resu == -1)
 			break;
 		strtoken(command, line, " ");
+		if (!command[0])
+			exit(911);
+
 		find_error = findExec(command);
 		if (find_error == 0)
 		{

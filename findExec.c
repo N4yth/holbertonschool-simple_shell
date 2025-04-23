@@ -14,14 +14,12 @@ int findExec(char **command)
 	if (!strcmp(command[0], "exit"))
 	{
 		free(pathEnv);
-		return(-1);
-	}
-	if (!access(command[0], X_OK))
+		return (-1);
+	} else if (!access(command[0], X_OK))
 	{
 		free(pathEnv);
 		return (1);
-	}
-	if (pathEnv == NULL)
+	} else if (pathEnv == NULL)
 	{
 		free(pathEnv);
 		return (0);

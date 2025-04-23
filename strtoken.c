@@ -9,7 +9,7 @@
  * Return: always 0
  */
 
-char **strtoken(char **command, char *line, char *separator)
+int strtoken(char **command, char *line, char *separator)
 {
 	int i = 0;
 
@@ -24,6 +24,10 @@ char **strtoken(char **command, char *line, char *separator)
 			command[i] = line;
 		i++;
 	}
-	command[i] = NULL;
-	return (0);
+	if (i > 0)
+	{
+		command[i] = NULL;
+		return (0);
+	}
+	return (1);
 }

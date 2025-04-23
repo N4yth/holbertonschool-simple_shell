@@ -22,10 +22,8 @@ int main(void)
 		resu = getline(&line, &len, stdin);
 		if (resu == -1)
 			break;
-		strtoken(command, line, " ");
-		if (!command[0])
-			exit(911);
-
+		if (strtoken(command, line, " "))
+			break;
 		find_error = findExec(command);
 		if (find_error == 0)
 		{

@@ -4,7 +4,6 @@
  * execution - execute the command
  *
  * @command: the command and its parameter
- * @error: the return of findExec
  *
  * Return: 1 if error or 0 otherwise
  */
@@ -25,7 +24,7 @@ int execution(char **command)
 		if (execve(command[0], command, environ) == -1)
 		{
 			return (1);
-		}		
+		}
 		return (0);
 	}
 	else

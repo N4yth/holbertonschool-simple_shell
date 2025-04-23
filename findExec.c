@@ -8,14 +8,17 @@
 int findExec(char **command)
 {
 	char *pathEnv = myGetEnv("PATH");
-	char *pathCpy, *dir, final_path[255];
+	char *pathCpy , *dir, final_path[255];
 	DIR *file;
 	struct dirent *entry;
 
+	if (!access(command[0], X_OK))
+	{
+		free(pathEnv);
+		return (1);
+	}
 	pathCpy = strdup(pathEnv);
-	if (pathCpy == NULL)
-		return (0);
-
+	free(pathEnv);
 	for (dir = strtok(pathCpy, ":"); dir != NULL ; dir = strtok(NULL, ":"))
 	{
 		file = opendir(dir);
@@ -25,8 +28,8 @@ int findExec(char **command)
 			{
 				if (!strcmp(entry->d_name, command[0]))
 				{
-					sprintf(final_path, "%s/%s", dir, command[0]); 
-					command[0] = final_path;
+					sprintf(final_path, "%s/%s", dir, command[0]);
+					strcpy(command[0], final_path);
 					closedir(file);
 					free(pathCpy);
 					return (1);
@@ -38,4 +41,4 @@ int findExec(char **command)
 	printf("./hsh: no such file or directory\n");
 	free(pathCpy);
 	return (0);
-}	
+}

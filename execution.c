@@ -27,7 +27,6 @@ int execution(char **command)
 	else
 	{
 		wait(&status);
-		WEXITSTATUS(status);
 	}
-	return (status);
+	return (0);
 }

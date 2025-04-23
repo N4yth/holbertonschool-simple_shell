@@ -12,7 +12,7 @@
 
 extern char **environ;
 
-char **strtoken(char **command, char *line, char *separator);
+int strtoken(char **command, char *line, char *separator);
 int execution(char **command);
 int findExec(char **command);
 char *myGetEnv(const char *name);

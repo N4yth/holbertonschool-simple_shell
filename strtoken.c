@@ -13,7 +13,7 @@ char **strtoken(char **command, char *line, char *separator)
 {
 	int i = 0;
 
-	line = strtok(line, "\n");
+	line = strtok(line, "\t\n\r");
 
 	for (line = strtok(line, separator) ; line != NULL;
 			line = strtok(NULL, separator))

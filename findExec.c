@@ -12,7 +12,10 @@ int findExec(char **command)
 	struct dirent *entry;
 
 	if (!strcmp(command[0], "exit"))
+	{
+		free(pathEnv);
 		return(-1);
+	}
 	if (!access(command[0], X_OK))
 	{
 		free(pathEnv);

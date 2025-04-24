@@ -15,6 +15,11 @@ int findExec(char **command)
 	{
 		free(pathEnv);
 		return (-1);
+	} else if (!strcmp(command[0], "env"))
+	{
+		envBuiltin();
+		free(pathEnv);
+		return (2);
 	} else if (!access(command[0], X_OK))
 	{
 		free(pathEnv);

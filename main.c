@@ -37,8 +37,8 @@ int main(void)
 		}
 		else if (find_error == -1)
 			break;
-		line = NULL;
-		exe_resu = execution(command);
+		else if (find_error != 2)
+			exe_resu = execution(command);
 	}
 	free(command[0]);
 	free(line);

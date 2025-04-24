@@ -33,12 +33,12 @@ This project is done in team:
 @Nathan Dupuis  
 @Ingrid Mornac
 
-
 # **Installation**  
 Create one project repository for our team, with the main branch and a branch per member on our Github.  
 
 
 # **Flowchart**  
+![Flowchart of the simple_shell](https://github.com/N4yth/holbertonschool-simple_shell/blob/main/Images/simple_shell.drawio_page-0001%20(1).jpg)  
 
 
 # **Resources**
@@ -50,7 +50,7 @@ Create one project repository for our team, with the main branch and a branch pe
 
 
 ## **Man:**
-
+simpleShell (1) ![man_1_simple_shell](https://github.com/N4yth/holbertonschool-simple_shell/blob/main/man_1_simple_shell)
 
 # **Requirements**  
 - Allowed editors: vi, vim, emacs
@@ -75,6 +75,7 @@ creation of our GetEnv function
 - strtoken.c
 - findExec.c
 - execution.c  
+- envBuiltin.c  
 
 
 # **Compilation**
@@ -118,7 +119,8 @@ The prototypes of all the functions are included in the header file called simpl
 |char **strtoken(char **command, char *line, char *separator)|strok the line given into an array of all element|
 |char *myGetEnv(const char *name)|retrieve the value of an environment variable|
 |int findExec(char **command)|handle the paths|
-|int execution(char **command)|execute the command|  
+|int execution(char **command)|execute the command|
+|int envBuiltin(void)|print the current environment|  
 
 
 # **Output**
@@ -161,117 +163,24 @@ to be able to be corrected by the checker.
 
 
 # **Example**
-**Fork, wait and execve code** 
+**Simple use in interactive mode, testing with 3 commands** 
 ```
-int main(void) 
-{
-    pid_t pid;
-    int i;
+user@machine:~/workspace$ hsh
+hsh~$ ls /var
+backups  crash  local  log   opt  snap   tmp
+cache    lib    lock   mail  run  spool
+hsh~$ echo test
+test
+hsh~$ exit
+user@machine:~/workspace$
+```  
 
-    for (i = 0; i < 5; i++)
-    {
-        pid = fork();
-
-        if (pid == -1)
-        {
-            perror("fork");
-            exit(EXIT_FAILURE);
-        }
-        else if (pid == 0)
-        {
-             printf("Child %d: Execute the command 'ls -l /tmp'\n", i + 1);
-            
-            char *args[] = {"/bin/ls", "-l", "/tmp", NULL};
-            
-            if (execve(args[0], args, NULL) == -1)
-            {
-                perror("execve");
-                exit(EXIT_FAILURE);
-            }
-        }
-        else
-        {
-            wait(NULL);
-        }
-    }
-    return 0;
-}
+**Simple use in non interactive mode**
 ```
-**Fork, wait and execve output**
-```
-Child 1: Execute the command 'ls -l /tmp'
-total 52
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 4L24cucsCz
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 722nx9yuCT
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 LriY70ay9m
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 MCkt5fbhjW
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 Rp7xfycKiF
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 VGL2RNn2j7
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 WTufTgioBX
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 X11DdGEb7L
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 ZQPoGUoy2D
--rw------- 1 compiler compiler    0 Apr 21 13:13 ccZKMuGd.s
--rw------- 1 compiler compiler    0 Apr 21 13:13 ccl9Vsz1.s
-prw-r--r-- 1 compiler compiler    0 Apr 21 09:59 fifo
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 kk7txJ7Pji
-drwxr-xr-x 3 compiler compiler 4096 Apr 21 08:57 pkg
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 sKX1aqUYNd
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:10 uKfjY3GTdO
-Child 2: Execute the command 'ls -l /tmp'
-total 52
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 4L24cucsCz
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 722nx9yuCT
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 LriY70ay9m
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 MCkt5fbhjW
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 Rp7xfycKiF
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 VGL2RNn2j7
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 WTufTgioBX
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 X11DdGEb7L
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 ZQPoGUoy2D
--rw------- 1 compiler compiler    0 Apr 21 13:13 ccZKMuGd.s
--rw------- 1 compiler compiler    0 Apr 21 13:13 ccl9Vsz1.s
-prw-r--r-- 1 compiler compiler    0 Apr 21 09:59 fifo
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 kk7txJ7Pji
-drwxr-xr-x 3 compiler compiler 4096 Apr 21 08:57 pkg
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 sKX1aqUYNd
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:10 uKfjY3GTdO
-Child 3: Execute the command 'ls -l /tmp'
-total 52
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 4L24cucsCz
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 722nx9yuCT
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 LriY70ay9m
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 MCkt5fbhjW
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 Rp7xfycKiF
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 VGL2RNn2j7
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 WTufTgioBX
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 X11DdGEb7L
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 ZQPoGUoy2D
--rw------- 1 compiler compiler    0 Apr 21 13:13 ccZKMuGd.s
--rw------- 1 compiler compiler    0 Apr 21 13:13 ccl9Vsz1.s
-prw-r--r-- 1 compiler compiler    0 Apr 21 09:59 fifo
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 kk7txJ7Pji
-drwxr-xr-x 3 compiler compiler 4096 Apr 21 08:57 pkg
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 sKX1aqUYNd
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:10 uKfjY3GTdO
-Child 4: Execute the command 'ls -l /tmp'
-total 56
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 4L24cucsCz
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 722nx9yuCT
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 LriY70ay9m
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 MCkt5fbhjW
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 Rp7xfycKiF
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 VGL2RNn2j7
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 WTufTgioBX
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 X11DdGEb7L
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 ZQPoGUoy2D
--rw------- 1 compiler compiler    0 Apr 21 13:13 ccFPicZe.o
--rw------- 1 compiler compiler  908 Apr 21 13:13 ccZKMuGd.s
--rw------- 1 compiler compiler    0 Apr 21 13:13 ccl9Vsz1.s
-prw-r--r-- 1 compiler compiler    0 Apr 21 09:59 fifo
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:13 kk7txJ7Pji
-drwxr-xr-x 3 compiler compiler 4096 Apr 21 08:57 pkg
-drwxr-xr-x 2 compiler compiler 4096 Apr 21 13:12 sKX1aqUYNd
-drwxr-xr-x 2 compiler compiler
+user@machine:~/workspace$ echo "/bin/ls /var" | hsh
+backups  crash  local  log   opt  snap   tmp
+cache    lib    lock   mail  run  spool
+user@machine:~/workspace$
 ```
 
 

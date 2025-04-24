@@ -1,0 +1,51 @@
+.TH \_SHELL 1 "April 2025" "Holberton Project" "Library Functions Manual"
+.SH NAME
+hsh \- simple command interpreter (shell)
+.SH SYNOPSIS
+.sp
+hsh [no option handle]
+.SH DESCRIPTION
+The 'hsh' programme is a simple command interpreter that can handle simple command like 'ls', 'echo',... with there options. This program is similar to the command interpreter given by Ubuntu (sh) but with less possibilities.
+
+.PP 
+
+.SH EXIT STATUS
+Errors that are detected by the program, such as syntax error will make the program exit with a non-zero exit status. In non interactive the program doesn't display the error and just return the status. If we use exit command to stop the program, it will return the status of the last command used. There is no option to display all the error of all past command.
+
+.SH EXAMPLES
+There are some examples of simple shell usage
+.IP
+- user@machine:~/workspace$ hsh
+.nf
+.RS
+hsh~$ ls -l /var
+total 0 
+drwxr-xr-x 1 root root   512 Apr 22  2024 backups
+drwxr-xr-x 1 root root   512 Jan  6 21:15 cache
+drwxrwsrwt 1 root root   512 Feb  4 16:00 crash
+[...]
+hsh~$
+.RE
+.fi
+.IP
+.nf
+.RS
+- user@machine:~/workspace$ hsh
+hsh~$ echo test
+test
+hsh~$
+.RE
+.fi
+.IP
+.nf
+.RS
+- user@machine:~/workspace$ hsh
+hsh~$ exit
+user@machine:~/workspace$
+.RE
+.fi
+.tion
+.SH BUGS
+This program is not a complete command interpreter, a lot of options and commands are not handle like [cd][^C][up_key]....
+.SH AUTHORS
+Nathan Dupuis & Ingrid Mornac

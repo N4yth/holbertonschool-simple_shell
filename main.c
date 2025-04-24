@@ -27,8 +27,7 @@ int main(void)
 		find_error = findExec(command);
 		if (find_error == 0)
 		{
-			if (isatty(STDIN_FILENO))
-				printf("./hsh: no such file or directory\n");
+			printf("./hsh: %s: not found\n", command[0]);
 			exe_resu = 127;
 			break;
 		}

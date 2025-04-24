@@ -11,6 +11,9 @@ char *myGetEnv(const char *name)
 	char *pathCpy;
 	int lenName = strlen(name) + 1, result, i;
 
+	if (environ == NULL)
+		return (NULL);
+	
 	for (i = 0 ; environ[i] ; i++)
 	{
 		result = strncmp(name, environ[i], strlen(name));

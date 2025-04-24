@@ -27,7 +27,7 @@ int main(void)
 		find_error = findExec(command);
 		if (find_error == 0)
 		{
-			printf("./hsh: %s: not found\n", command[0]);
+			fprintf(stderr, "./hsh: %s: not found\n", command[0], 99)
 			exe_resu = 127;
 			break;
 		}

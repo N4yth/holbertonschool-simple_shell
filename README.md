@@ -38,7 +38,7 @@ Create one project repository for our team, with the main branch and a branch pe
 
 
 # **Flowchart**  
-![Flowchart of the simple_shell]()  
+![Flowchart of the simple_shell](https://github.com/N4yth/holbertonschool-simple_shell/blob/main/Images/simple_shell.drawio_page-0001%20(1).jpg)  
 
 
 # **Resources**

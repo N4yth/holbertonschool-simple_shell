@@ -26,7 +26,6 @@ int findExec(char **command)
 		return (1);
 	} else if (pathEnv == NULL)
 	{
-		free(pathEnv);
 		return (0);
 	}
 	pathCpy = strdup(pathEnv);

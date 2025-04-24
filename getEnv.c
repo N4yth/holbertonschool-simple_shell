@@ -13,7 +13,7 @@ char *myGetEnv(const char *name)
 
 	if (environ == NULL)
 		return (NULL);
-	
+
 	for (i = 0 ; environ[i] ; i++)
 	{
 		result = strncmp(name, environ[i], strlen(name));

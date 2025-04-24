@@ -33,13 +33,12 @@ This project is done in team:
 @Nathan Dupuis  
 @Ingrid Mornac
 
-
 # **Installation**  
 Create one project repository for our team, with the main branch and a branch per member on our Github.  
 
 
 # **Flowchart**  
-![Flowchart of the simple_shell](https://github.com/N4yth/holbertonschool-simple_shell/blob/main/Images/simple_shell.drawio.pdf)  
+![Flowchart of the simple_shell]()  
 
 
 # **Resources**

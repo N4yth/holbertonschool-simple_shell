@@ -19,10 +19,9 @@ int main(void)
 	{
 		if (isatty(STDIN_FILENO))
 			printf("hsh~$ ");
+		resu = getline(&line, &len, stdin);
 		if (resu == -1)
 			break;
-		resu = getline(&line, &len, stdin);
-		line[strlen(line) - 1] = '\0';
 		if (strtoken(command, line, " "))
 			continue;
 		find_error = findExec(command);
@@ -30,9 +29,8 @@ int main(void)
 		{
 			if (isatty(STDIN_FILENO))
 				printf("./hsh: no such file or directory\n");
-			free(line);
-			free(command[0]);
-			exit(127);
+			exe_resu = 127;
+			break;
 		}
 		else if (find_error == -1)
 			break;

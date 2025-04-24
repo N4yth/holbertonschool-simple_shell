@@ -12,12 +12,7 @@
 
 extern char **environ;
 
-<<<<<<< HEAD
 int strtoken(char **command, char *line, char *separator);
-=======
-int main(void);
-char **strtoken(char **command, char *line, char *separator);
->>>>>>> 3bb854b (add the prototype of the envBuiltin)
 int execution(char **command);
 int findExec(char **command);
 char *myGetEnv(const char *name);

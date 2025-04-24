@@ -39,6 +39,7 @@ Create one project repository for our team, with the main branch and a branch pe
 
 
 # **Flowchart**  
+![Flowchart of the simple_shell](https://github.com/N4yth/holbertonschool-simple_shell/blob/main/Images/simple_shell.drawio.pdf)  
 
 
 # **Resources**
@@ -50,7 +51,7 @@ Create one project repository for our team, with the main branch and a branch pe
 
 
 ## **Man:**
-
+simpleShell (1) ![man_1_simple_shell](https://github.com/N4yth/holbertonschool-simple_shell/blob/main/man_1_simple_shell)
 
 # **Requirements**  
 - Allowed editors: vi, vim, emacs
@@ -75,6 +76,7 @@ creation of our GetEnv function
 - strtoken.c
 - findExec.c
 - execution.c  
+- envBuiltin.c  
 
 
 # **Compilation**
@@ -118,7 +120,8 @@ The prototypes of all the functions are included in the header file called simpl
 |char **strtoken(char **command, char *line, char *separator)|strok the line given into an array of all element|
 |char *myGetEnv(const char *name)|retrieve the value of an environment variable|
 |int findExec(char **command)|handle the paths|
-|int execution(char **command)|execute the command|  
+|int execution(char **command)|execute the command|
+|int envBuiltin(void)|print the current environment|  
 
 
 # **Output**

@@ -20,6 +20,8 @@ int main(void)
 		if (isatty(STDIN_FILENO))
 			printf("hsh~$ ");
 		resu = getline(&line, &len, stdin);
+
+		printf("Received %s, resu = %i, len=%li", line, resu, len);
 		if (resu == -1)
 			break;
 		if (strtoken(command, line, " "))

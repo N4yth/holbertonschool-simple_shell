@@ -2,18 +2,17 @@
 
 /**
  *envBuiltin - prints the current environment
- *@environ: environment to print
+ *
  *Return: always 0
  */
-int envBuiltin(char **environ)
+int envBuiltin(void)
 {
 	int i = 0;
 
-	printf("env");
-
-	for (i = 0; environ[i] != NULL; i++)
+	while (environ[i] != NULL)
 	{
 		printf("%s\n", environ[i]);
+		i++;
 	}
 	return (0);
 }

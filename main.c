@@ -23,7 +23,6 @@ int main(void)
 			break;
 		resu = getline(&line, &len, stdin);
 		line[strlen(line) - 1] = '\0';
-		printf("Received %s, resu = %i, len=%li\n", line, resu, len);
 		if (strtoken(command, line, " "))
 			continue;
 		find_error = findExec(command);

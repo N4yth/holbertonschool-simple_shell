@@ -19,13 +19,13 @@ int main(void)
 	{
 		if (isatty(STDIN_FILENO))
 			printf("hsh~$ ");
-		resu = getline(&line, &len, stdin);
-
-		printf("Received %s, resu = %i, len=%li", line, resu, len);
 		if (resu == -1)
 			break;
+		resu = getline(&line, &len, stdin);
+		line[strlen(line) - 1] = '\0';
+		printf("Received %s, resu = %i, len=%li\n", line, resu, len);
 		if (strtoken(command, line, " "))
-			break;
+			continue;
 		find_error = findExec(command);
 		if (find_error == 0)
 		{
@@ -37,6 +37,7 @@ int main(void)
 		}
 		else if (find_error == -1)
 			break;
+		line = NULL;
 		exe_resu = execution(command);
 	}
 	free(command[0]);

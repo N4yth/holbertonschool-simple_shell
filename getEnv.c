@@ -17,13 +17,13 @@ char *myGetEnv(const char *name)
 	for (i = 0 ; environ[i] ; i++)
 	{
 		result = strncmp(name, environ[i], strlen(name));
-		if (result == 0)
+		if (result == 0) /* compare name with name of env var name */
 		{
 			pathCpy = malloc((strlen(environ[i]) + 1) - lenName);
-			/* */
 			if (pathCpy == NULL)
 				return (NULL);
 			strcpy(pathCpy, environ[i] + lenName);
+			/* cpy and dont take the name of env var */
 			return (pathCpy);
 		}
 	}

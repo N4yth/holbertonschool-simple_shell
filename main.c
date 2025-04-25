@@ -18,22 +18,22 @@ int main(void)
 	while (1)
 	{
 		if (isatty(STDIN_FILENO))
-			printf("hsh~$ ");
+			printf("hsh~$ "); /* when the shell is non interactive */
 		resu = getline(&line, &len, stdin);
 		if (resu == -1)
 			break;
 		if (strtoken(command, line, " "))
 			continue;
 		find_error = findExec(command);
-		if (find_error == 0)
+		if (find_error == 0) /* when error is detected in findExec */
 		{
 			fprintf(stderr, "./hsh: 1: %s: not found\n", command[0]);
 			exe_resu = 127;
 			break;
 		}
-		else if (find_error == -1)
+		else if (find_error == -1) /* when the command exit is call */
 			break;
-		else if (find_error != 2)
+		else if (find_error != 2) /* if = 2 the command already executed */
 			exe_resu = execution(command);
 	}
 	free(command[0]);

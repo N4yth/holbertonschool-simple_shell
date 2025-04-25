@@ -7,7 +7,7 @@
  */
 int findExec(char **command)
 {
-	char *pathEnv = myGetEnv("PATH"), *pathCpy, *dir, final_path[255];
+	char *pathEnv = myGetEnv("PATH="), *pathCpy, *dir, final_path[255];
 	DIR *file;
 	struct dirent *entry;
 
@@ -26,7 +26,6 @@ int findExec(char **command)
 		return (1);
 	} else if (pathEnv == NULL)
 	{
-		free(pathEnv);
 		return (0);
 	}
 	pathCpy = strdup(pathEnv); /* duplicate to protect */

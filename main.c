@@ -20,20 +20,16 @@ int main(void)
 		if (isatty(STDIN_FILENO))
 			printf("hsh~$ "); /* when the shell is non interactive */
 		resu = getline(&line, &len, stdin);
-
-		printf("Received %s, resu = %i, len=%li", line, resu, len);
-		if (resu == -1) /* ctrl D handle*/
+		if (resu == -1)
 			break;
-		if (strtoken(command, line, " ")) /* builtin function tokenize the line */
-			break;
+		if (strtoken(command, line, " "))
+			continue;
 		find_error = findExec(command);
 		if (find_error == 0) /* when error is detected in findExec */
 		{
-			if (isatty(STDIN_FILENO))
-				printf("./hsh: no such file or directory\n");
-			free(line);
-			free(command[0]);
-			exit(127);
+			fprintf(stderr, "./hsh: 1: %s: not found\n", command[0]);
+			exe_resu = 127;
+			break;
 		}
 		else if (find_error == -1) /* when the command exit is call */
 			break;

@@ -26,8 +26,8 @@ int strtoken(char **command, char *line, char *separator)
 	}
 	if (i > 0)
 	{
-		command[i] = NULL;
+		command[i] = NULL; /* set the end of the command */
 		return (0);
 	}
-	return (1);
+	return (1); /* command line empty */
 }

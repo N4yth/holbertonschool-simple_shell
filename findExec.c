@@ -11,16 +11,16 @@ int findExec(char **command)
 	DIR *file;
 	struct dirent *entry;
 
-	if (!strcmp(command[0], "exit"))
+	if (!strcmp(command[0], "exit")) /* ask the shell to exit */
 	{
 		free(pathEnv);
 		return (-1);
-	} else if (!strcmp(command[0], "env"))
+	} else if (!strcmp(command[0], "env")) /* print env var */
 	{
 		envBuiltin();
 		free(pathEnv);
 		return (2);
-	} else if (!access(command[0], X_OK))
+	} else if (!access(command[0], X_OK)) /* executable directly accessible */
 	{
 		free(pathEnv);
 		return (1);
@@ -29,17 +29,17 @@ int findExec(char **command)
 		free(pathEnv);
 		return (0);
 	}
-	pathCpy = strdup(pathEnv);
+	pathCpy = strdup(pathEnv); /* duplicate to protect */
 	free(pathEnv);
 	for (dir = strtok(pathCpy, ":"); dir != NULL ; dir = strtok(NULL, ":"))
-	{
+	{ /* go through each directory in PATH */
 		file = opendir(dir);
 		if (file)
 		{
 			while ((entry = readdir(file)) != NULL)
 			{
 				if (!strcmp(entry->d_name, command[0]))
-				{
+				{ /* when file has same name as command */
 					sprintf(final_path, "%s/%s", dir, command[0]);
 					strcpy(command[0], final_path);
 					closedir(file);
